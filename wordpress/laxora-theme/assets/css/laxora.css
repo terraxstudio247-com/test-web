@@ -1283,3 +1283,54 @@ button { font-family: inherit; cursor: pointer; }
   .laxora-premium-banner { padding: 72px 20px; }
   .laxora-testimonials { padding: 64px 0; }
 }
+
+/* =========================================================
+   SERVICES PAGE — detailed svc tiles + 5-card grid balancing
+   ========================================================= */
+
+/* 5 cards: 3 on top, 2 centered below on desktop. */
+@media (min-width: 1024px) {
+  .laxora-svc-grid--five { grid-template-columns: repeat(6, 1fr); }
+  .laxora-svc-grid--five > * { grid-column: span 2; }
+  /* Row 1: 3 cards (span 2 each = 6 cols). Row 2: 2 cards offset by 1. */
+  .laxora-svc-grid--five > *:nth-child(4) { grid-column: 2 / span 2; }
+  .laxora-svc-grid--five > *:nth-child(5) { grid-column: 4 / span 2; }
+}
+
+/* Detailed service tile — adds excerpt + color stripe + bottom action link */
+.laxora-svc-tile--detailed { text-decoration: none; }
+.laxora-svc-tile--detailed .laxora-svc-tile__image { aspect-ratio: 16/10; }
+.laxora-svc-tile__accent {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 3px;
+  z-index: 2;
+}
+.laxora-svc-tile--detailed .laxora-svc-tile__body {
+  padding: 24px 26px 26px;
+  display: flex; flex-direction: column; gap: 12px; flex: 1;
+}
+.laxora-svc-tile--detailed .laxora-svc-tile__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  margin: 0;
+}
+.laxora-svc-tile__excerpt {
+  color: rgba(229,229,229,0.65);
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 300;
+  margin: 0;
+  flex: 1;
+}
+.laxora-svc-tile--detailed .laxora-svc-tile__link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: gap .3s ease, opacity .3s ease;
+}
+.laxora-svc-tile--detailed:hover .laxora-svc-tile__link { gap: 14px; }
