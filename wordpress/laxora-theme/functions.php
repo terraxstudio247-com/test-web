@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'LAXORA_VERSION', '1.0.4' );
+define( 'LAXORA_VERSION', '1.0.5' );
 define( 'LAXORA_DIR', get_template_directory() );
 define( 'LAXORA_URI', get_template_directory_uri() );
 
@@ -268,6 +268,38 @@ function laxora_whatsapp_link( $message = '' ) {
 }
 function laxora_phone_link() {
     return 'tel:' . get_theme_mod( 'laxora_phone', '+971500000000' );
+}
+
+/**
+ * Returns true if the current post/page is being built with Elementor (saved or being edited).
+ * Used by every page template so Elementor can inject its content via the_content filter.
+ */
+function laxora_is_elementor_page( $post_id = null ) {
+    if ( ! $post_id ) { $post_id = get_the_ID(); }
+    if ( ! $post_id ) { return false; }
+
+    // Editor preview iframe / Ajax render.
+    if ( isset( $_GET['elementor-preview'] ) ) {                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        return true;
+    }
+
+    // Saved Elementor document.
+    if ( get_post_meta( $post_id, '_elementor_edit_mode', true ) === 'builder' ) {
+        return true;
+    }
+
+    // Official Elementor API (when the plugin is active).
+    if ( did_action( 'elementor/loaded' ) && class_exists( '\\Elementor\\Plugin' ) ) {
+        try {
+            $document = \Elementor\Plugin::$instance->documents->get( $post_id );
+            if ( $document && method_exists( $document, 'is_built_with_elementor' ) && $document->is_built_with_elementor() ) {
+                return true;
+            }
+        } catch ( \Exception $e ) {
+            // Silent fail.
+        }
+    }
+    return false;
 }
 
 /**

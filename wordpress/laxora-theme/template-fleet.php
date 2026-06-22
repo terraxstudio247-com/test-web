@@ -8,6 +8,18 @@
 
 get_header();
 
+// If Elementor is the active builder for this page, render its content and bail.
+if ( have_posts() ) {
+    the_post();
+    if ( laxora_is_elementor_page() ) {
+        the_content();
+        get_footer();
+        return;
+    }
+    rewind_posts();
+    the_post();
+}
+
 // Video page banner (kept from prior task).
 get_template_part( 'template-parts/page-banner', null, array(
     'eyebrow'  => __( 'Our Fleet', 'laxora' ),
@@ -226,4 +238,10 @@ get_template_part( 'template-parts/page-banner', null, array(
     </div>
 </section>
 
-<?php get_footer(); ?>
+<?php
+// Hidden content area — empty for curated pages, lets Elementor activate later.
+echo '<div class="laxora-page-content laxora-page-content--empty">';
+the_content();
+echo '</div>';
+get_footer();
+?>

@@ -8,6 +8,18 @@
 
 get_header();
 
+// If Elementor is the active builder for this page, render its content and bail.
+if ( have_posts() ) {
+    the_post();
+    if ( laxora_is_elementor_page() ) {
+        the_content();
+        get_footer();
+        return;
+    }
+    rewind_posts();
+    the_post();
+}
+
 get_template_part( 'template-parts/page-banner', null, array(
     'eyebrow'  => __( 'Contact', 'laxora' ),
     'title'    => __( '<em>Concierge</em>, available 24/7.', 'laxora' ),
@@ -115,4 +127,10 @@ $shortcode= get_theme_mod( 'laxora_inquiry_shortcode', '[wpforms id="1"]' );
     </div>
 </section>
 
-<?php get_footer(); ?>
+<?php
+// Hidden content area — empty for curated pages, lets Elementor activate later.
+echo '<div class="laxora-page-content laxora-page-content--empty">';
+the_content();
+echo '</div>';
+get_footer();
+?>

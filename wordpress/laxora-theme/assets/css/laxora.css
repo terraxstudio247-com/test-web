@@ -1334,3 +1334,11 @@ button { font-family: inherit; cursor: pointer; }
   transition: gap .3s ease, opacity .3s ease;
 }
 .laxora-svc-tile--detailed:hover .laxora-svc-tile__link { gap: 14px; }
+
+/* =========================================================
+   ELEMENTOR COMPATIBILITY — hidden content wrapper
+   ========================================================= */
+.laxora-page-content--empty { display: contents; }
+.laxora-page-content--empty:empty { display: none; }
+.laxora-page-content { background: var(--laxora-bg); }
+.laxora-page-content > * { /* preserve normal element styling when Elementor injects content */ }
