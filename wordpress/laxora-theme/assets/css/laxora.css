@@ -1119,3 +1119,167 @@ button { font-family: inherit; cursor: pointer; }
   .laxora-stat-card { padding: 22px 20px; gap: 14px; }
   .laxora-stat-card__icon { flex-basis: 52px; width: 52px; height: 52px; }
 }
+
+/* =========================================================
+   FLEET PAGE (v2) — intro, premium banner, testimonials
+   ========================================================= */
+
+/* ---- Fleet intro ---- */
+.laxora-fleet-intro {
+  padding: 80px 0 32px;
+  background: var(--laxora-bg);
+  text-align: center;
+}
+.laxora-fleet-intro__inner { max-width: 920px; margin: 0 auto; }
+.laxora-fleet-intro__title { margin: 0 0 24px; }
+.laxora-fleet-intro__accent { color: var(--laxora-gold); }
+.laxora-fleet-intro .laxora-lead {
+  max-width: 800px;
+  margin: 0 auto 32px;
+}
+.laxora-fleet-intro__sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 2.6vw, 30px);
+  color: var(--laxora-text);
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--laxora-border);
+  display: inline-block;
+}
+
+/* Two-column checklist for fleet detail rows */
+.laxora-checklist--two {
+  display: grid; gap: 12px;
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+@media (min-width: 600px) { .laxora-checklist--two { grid-template-columns: 1fr 1fr; gap: 12px 24px; } }
+.laxora-checklist--two li { font-size: 14px; padding-left: 24px; }
+.laxora-fleet-sub {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--laxora-gold);
+  margin: 28px 0 8px;
+}
+.laxora-fleet-sub strong { font-weight: 600; }
+
+.laxora-services-detail--fleet { padding: 64px 0 96px; }
+
+/* ---- Premium fleet banner ---- */
+.laxora-premium-banner {
+  padding: 120px 24px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-top: 1px solid rgba(229,229,229,0.05);
+  border-bottom: 1px solid rgba(229,229,229,0.05);
+  text-align: center;
+  position: relative;
+}
+.laxora-premium-banner::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(11,12,16,0) 0%, rgba(11,12,16,0.55) 100%);
+  pointer-events: none;
+}
+.laxora-premium-banner__inner {
+  position: relative; max-width: 760px; margin: 0 auto;
+}
+.laxora-premium-banner__title { margin: 0 0 16px; }
+.laxora-premium-banner__inner .laxora-lead { margin: 0 auto 32px; color: rgba(229,229,229,0.78); }
+
+/* Disable parallax on touch devices (poor UX). */
+@media (max-width: 1024px) {
+  .laxora-premium-banner { background-attachment: scroll; padding: 96px 24px; }
+}
+
+/* ---- Testimonials ---- */
+.laxora-testimonials {
+  padding: 96px 0;
+  background: linear-gradient(180deg, #0B0F17 0%, #0E1420 100%);
+  border-top: 1px solid rgba(229,229,229,0.05);
+}
+.laxora-testimonials__header {
+  text-align: center; max-width: 720px;
+  margin: 0 auto 56px;
+}
+.laxora-testimonials__header h2 { margin: 16px 0 0; }
+
+.laxora-testimonials__grid {
+  display: grid; gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .laxora-testimonials__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .laxora-testimonials__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.laxora-testimonial {
+  background: var(--laxora-bg-2);
+  border: 1px solid var(--laxora-border);
+  padding: 28px 26px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.laxora-testimonial:hover { border-color: rgba(197,160,89,0.4); transform: translateY(-3px); }
+.laxora-testimonial__head {
+  display: flex; align-items: center; gap: 12px;
+}
+.laxora-testimonial__badge {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600;
+}
+.laxora-testimonial__platform {
+  display: block;
+  font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(229,229,229,0.5);
+}
+.laxora-testimonial__name {
+  display: block;
+  font-size: 15px; font-weight: 500;
+  color: var(--laxora-text);
+  margin-top: 2px;
+}
+.laxora-testimonial__stars {
+  color: var(--laxora-gold);
+  font-size: 16px; letter-spacing: 0.1em;
+}
+.laxora-testimonial__text {
+  color: rgba(229,229,229,0.7);
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 14px;
+  margin: 0;
+  flex: 1;
+}
+.laxora-testimonial__date {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(229,229,229,0.4);
+  padding-top: 12px;
+  border-top: 1px dashed rgba(229,229,229,0.08);
+}
+
+.laxora-testimonials__cta {
+  margin-top: 56px;
+  display: flex; flex-direction: column;
+  gap: 18px; align-items: center; justify-content: center;
+  text-align: center;
+}
+.laxora-testimonials__rating-line {
+  font-size: 13px; letter-spacing: 0.04em;
+  color: rgba(229,229,229,0.65);
+}
+.laxora-testimonials__rating-line strong { color: var(--laxora-gold); font-weight: 600; }
+
+/* Mobile tweaks */
+@media (max-width: 639px) {
+  .laxora-fleet-intro { padding: 56px 0 24px; }
+  .laxora-premium-banner { padding: 72px 20px; }
+  .laxora-testimonials { padding: 64px 0; }
+}

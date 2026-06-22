@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'LAXORA_VERSION', '1.0.2' );
+define( 'LAXORA_VERSION', '1.0.3' );
 define( 'LAXORA_DIR', get_template_directory() );
 define( 'LAXORA_URI', get_template_directory_uri() );
 
