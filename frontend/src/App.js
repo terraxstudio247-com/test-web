@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import LuxuryCollection from './components/LuxuryCollection';
 import Services from './components/Services';
-import Fleet from './components/Fleet';
 import Pillars from './components/Pillars';
 import Inquiry from './components/Inquiry';
 import Footer from './components/Footer';
@@ -21,8 +21,8 @@ function App() {
       <Navbar onCtaClick={scrollToInquiry} />
       <main>
         <Hero onCtaClick={scrollToInquiry} />
+        <LuxuryCollection onDetails={scrollToInquiry} />
         <Services />
-        <Fleet onCtaClick={scrollToInquiry} />
         <Pillars />
         <Inquiry ref={inquiryRef} />
       </main>
