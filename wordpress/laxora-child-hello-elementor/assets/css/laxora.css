@@ -1,0 +1,93 @@
+/*!
+ * Laxora Child (for Hello Elementor) — brand styles + Elementor section overrides.
+ * Drops the Laxora visual language onto any Elementor-built page.
+ */
+
+:root {
+  --laxora-bg: #0B0C10;
+  --laxora-bg-2: #11161F;
+  --laxora-gold: #C5A059;
+  --laxora-silver: #E5E5E5;
+  --laxora-teal: #14B8A6;
+  --laxora-purple: #A855F7;
+  --laxora-purple-deep: #7E22CE;
+}
+
+body.elementor-default,
+body.elementor-page {
+  background-color: var(--laxora-bg);
+  color: var(--laxora-silver);
+}
+
+/* Headings inside Elementor widgets. */
+.elementor-widget-heading h1,
+.elementor-widget-heading h2,
+.elementor-widget-heading h3,
+.elementor-widget-heading h4,
+.elementor-widget-heading h5,
+.elementor-widget-heading h6 {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif !important;
+  color: var(--laxora-silver) !important;
+  letter-spacing: -0.01em;
+}
+
+.elementor-widget-text-editor,
+.elementor-widget-text-editor p {
+  color: rgba(229,229,229,0.7);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Buttons. */
+.elementor-button {
+  font-family: 'Inter', sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.32em !important;
+  font-weight: 500 !important;
+  border-radius: 0 !important;
+  font-size: 11px !important;
+}
+
+/* Primary CTA — mark with class .laxora-cta on any Elementor button. */
+.elementor-button.laxora-cta {
+  background-color: var(--laxora-gold) !important;
+  color: var(--laxora-bg) !important;
+}
+.elementor-button.laxora-cta:hover {
+  background-color: #E9C77B !important;
+}
+
+/* Image card softening (used in fleet/feature cards). */
+.laxora-card-elementor .elementor-widget-container {
+  background: var(--laxora-bg-2);
+  border: 1px solid rgba(229,229,229,0.08);
+}
+
+/* Eyebrow text helper (add class to Heading widget). */
+.laxora-eyebrow-elementor h1,
+.laxora-eyebrow-elementor h2,
+.laxora-eyebrow-elementor h3,
+.laxora-eyebrow-elementor h4,
+.laxora-eyebrow-elementor h5,
+.laxora-eyebrow-elementor h6 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.5em !important;
+  text-transform: uppercase !important;
+  color: var(--laxora-gold) !important;
+  font-weight: 500 !important;
+}
+
+/* Pill filter helper (used in nav widgets). */
+.laxora-pill-elementor .elementor-button {
+  border-radius: 9999px !important;
+  letter-spacing: 0.1em !important;
+  padding: 12px 28px !important;
+  background-color: #162033 !important;
+  color: rgba(229,229,229,0.85) !important;
+  border: 1px solid rgba(229,229,229,0.1) !important;
+}
+.laxora-pill-elementor.is-active .elementor-button {
+  background-color: var(--laxora-purple-deep) !important;
+  color: #fff !important;
+}
