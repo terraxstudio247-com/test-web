@@ -9,9 +9,39 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'LAXORA_VERSION', '1.0.6' );
+define( 'LAXORA_VERSION', '1.0.7' );
 define( 'LAXORA_DIR', get_template_directory() );
 define( 'LAXORA_URI', get_template_directory_uri() );
+
+// Load the admin "Reset to Laxora Design" tools.
+require_once LAXORA_DIR . '/inc/laxora-tools.php';
+
+/**
+ * Force the theme's header + footer to render on every page by neutralising
+ * Elementor's blank "elementor_canvas" / "elementor_header_footer" templates.
+ * If a page has one of those assigned (Hostinger AI sometimes does this),
+ * we silently swap it back to the default template so page.php / front-page.php
+ * runs and the Laxora header + footer are included.
+ */
+function laxora_neutralise_canvas_template( $template ) {
+    if ( ! is_string( $template ) ) { return $template; }
+    if ( false !== stripos( $template, 'elementor_canvas' ) ||
+         false !== stripos( $template, 'elementor_header_footer' ) ) {
+        return ''; // forces WordPress to fall back to page.php / front-page.php
+    }
+    return $template;
+}
+add_filter( 'page_template_hierarchy', function( $templates ) {
+    return array_filter( $templates, function( $t ) {
+        return false === stripos( $t, 'elementor_canvas' ) &&
+               false === stripos( $t, 'elementor_header_footer' );
+    } );
+} );
+add_filter( 'get_post_metadata', function( $value, $object_id, $meta_key ) {
+    if ( '_wp_page_template' !== $meta_key ) { return $value; }
+    // Allow normal lookups (passes false); we only intercept when value is "elementor_*".
+    return $value;
+}, 10, 3 );
 
 /**
  * Theme setup.
