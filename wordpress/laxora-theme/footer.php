@@ -48,7 +48,10 @@
 
     <div class="laxora-container laxora-footer__bottom">
         <p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php esc_html_e( 'Laxora. All Rights Reserved.', 'laxora' ); ?></p>
-        <p><?php esc_html_e( 'Crafted for the discerning few.', 'laxora' ); ?></p>
+        <p class="laxora-footer__credit">
+            <?php esc_html_e( 'Designed by', 'laxora' ); ?>
+            <a href="https://givemepopularity.ae/" target="_blank" rel="noopener">givemepopularity.ae</a>
+        </p>
     </div>
 </footer>
 
