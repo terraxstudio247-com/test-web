@@ -10,11 +10,11 @@ $home_poster = LAXORA_URI . '/assets/images/video-posters/home-poster.jpg';
 ?>
 <section id="hero" class="laxora-hero">
     <div class="laxora-hero__bg" aria-hidden="true">
-        <video class="laxora-hero__video"
-               autoplay muted loop playsinline preload="metadata"
-               poster="<?php echo esc_url( $home_poster ); ?>">
-            <source src="<?php echo esc_url( $home_video ); ?>" type="video/mp4">
-        </video>
+            <video class="laxora-hero__video"
+                   autoplay muted loop playsinline preload="auto"
+                   poster="<?php echo esc_url( $home_poster ); ?>">
+                <source src="<?php echo esc_url( $home_video ); ?>" type="video/mp4">
+            </video>
         <div class="laxora-hero__overlay"></div>
         <span class="laxora-glow laxora-glow--teal"></span>
         <span class="laxora-glow laxora-glow--gold"></span>

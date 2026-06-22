@@ -42,18 +42,23 @@
       });
     }
 
-    /* ----- Fade-in background videos once they can play ----- */
+    /* ----- Ensure background videos play (some browsers block autoplay) ----- */
     document.querySelectorAll('.laxora-hero__video, .laxora-page-banner__video, .laxora-video-hero__video').forEach(function (v) {
-      var markReady = function () { v.classList.add('is-ready'); };
-      if (v.readyState >= 3) {
-        markReady();
-      } else {
-        v.addEventListener('canplay', markReady, { once: true });
-        v.addEventListener('loadeddata', markReady, { once: true });
-      }
-      // Attempt programmatic play (some browsers block autoplay despite attrs).
-      var p = v.play && v.play();
-      if (p && typeof p.catch === 'function') { p.catch(function () { /* silent */ }); }
+      // Force muted in JS as well (Safari sometimes ignores the attribute).
+      v.muted = true;
+      v.defaultMuted = true;
+      v.setAttribute('muted', '');
+      v.setAttribute('playsinline', '');
+      var tryPlay = function () {
+        var p = v.play && v.play();
+        if (p && typeof p.catch === 'function') { p.catch(function () { /* ignored */ }); }
+      };
+      tryPlay();
+      // Retry once the page finishes loading.
+      window.addEventListener('load', tryPlay, { once: true });
+      // Final fallback: any user interaction will unlock playback.
+      document.addEventListener('click', tryPlay, { once: true });
+      document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
     });
 
     /* ----- Fleet category filter ----- */

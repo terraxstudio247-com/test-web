@@ -30,7 +30,7 @@ $rating   = isset( $args['rating'] )   ? $args['rating']   : __( 'Top rated by 1
                muted
                loop
                playsinline
-               preload="metadata"
+               preload="auto"
                poster="<?php echo esc_url( $poster ); ?>">
             <source src="<?php echo esc_url( $video ); ?>" type="video/mp4">
         </video>

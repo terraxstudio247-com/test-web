@@ -857,7 +857,9 @@ button { font-family: inherit; cursor: pointer; }
    VIDEO BACKGROUNDS — Home Hero + Page Banners
    ========================================================= */
 
-/* Home hero now uses <video> instead of <img> */
+/* Home hero uses <video> instead of <img>. The browser shows the
+   poster attribute until the video can play, so no custom opacity
+   trick is needed. */
 .laxora-hero__bg img,
 .laxora-hero__video {
   position: absolute; inset: 0;
@@ -866,7 +868,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .laxora-hero__video {
   z-index: 0;
-  background: var(--laxora-bg); /* fallback while loading */
+  background: var(--laxora-bg);
 }
 
 /* Page banner video variant */
@@ -882,19 +884,9 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--laxora-bg);
 }
 
-/* Smooth fade-in once the video can play (handled by JS). */
-.laxora-hero__video,
-.laxora-page-banner__video {
-  opacity: 0;
-  transition: opacity .6s ease;
-}
-.laxora-hero__video.is-ready,
-.laxora-page-banner__video.is-ready {
-  opacity: 1;
-}
-
 /* Respect users who prefer reduced motion — show poster only. */
 @media (prefers-reduced-motion: reduce) {
   .laxora-hero__video,
-  .laxora-page-banner__video { display: none; }
+  .laxora-page-banner__video,
+  .laxora-video-hero__video { display: none; }
 }

@@ -23,7 +23,7 @@ $banner_video    = isset( $args['video'] )    ? $args['video']    : '';
     <div class="laxora-page-banner__bg" aria-hidden="true">
         <?php if ( $banner_video ) : ?>
             <video class="laxora-page-banner__video"
-                   autoplay muted loop playsinline preload="metadata"
+                   autoplay muted loop playsinline preload="auto"
                    poster="<?php echo esc_url( $banner_image ); ?>">
                 <source src="<?php echo esc_url( $banner_video ); ?>" type="video/mp4">
             </video>
