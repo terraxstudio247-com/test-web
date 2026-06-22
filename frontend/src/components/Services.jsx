@@ -1,4 +1,5 @@
 import React from 'react';
+import { interiorImage } from '../mock';
 
 const Services = () => {
   const items = [
@@ -37,6 +38,25 @@ const Services = () => {
             From international arrivals to multi-day corporate engagements, every Laxora
             journey is choreographed end to end.
           </p>
+
+          {/* Decorative image */}
+          <div className="mt-10 relative aspect-[4/5] max-w-[320px] overflow-hidden border border-[#E5E5E5]/8">
+            <img
+              src={interiorImage}
+              alt="Laxora chauffeur interior"
+              className="w-full h-full object-cover opacity-85 hover:opacity-100 hover:scale-[1.04] transition-all duration-700"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C10] via-transparent to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5">
+              <p className="text-[10px] uppercase tracking-[0.32em] text-[#C5A059] mb-1">
+                Onboard
+              </p>
+              <p className="font-serif text-xl text-[#E5E5E5] leading-tight">
+                A private sanctuary in motion.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-[#E5E5E5]/10">

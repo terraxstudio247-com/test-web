@@ -1,5 +1,5 @@
 import React from 'react';
-import { pillars } from '../mock';
+import { pillars, heroImage } from '../mock';
 import { Clock, ShieldCheck, Lock } from 'lucide-react';
 
 const iconMap = { Clock, ShieldCheck, Lock };
@@ -8,19 +8,38 @@ const Pillars = () => {
   return (
     <section id="corporate" className="relative bg-[#0B0C10] py-28 md:py-36 border-t border-[#E5E5E5]/5">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-px w-10 bg-[#C5A059]/70" />
-            <span className="text-[10px] uppercase tracking-[0.5em] text-[#C5A059]">
-              The Laxora Standard
-            </span>
+        <div className="grid lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-7">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-10 bg-[#C5A059]/70" />
+              <span className="text-[10px] uppercase tracking-[0.5em] text-[#C5A059]">
+                The Laxora Standard
+              </span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#E5E5E5] leading-tight">
+              Three Pillars. Zero Compromise.
+            </h2>
+            <p className="mt-6 text-[#E5E5E5]/60 font-light text-lg leading-relaxed max-w-xl">
+              Our service philosophy is engineered around the three non-negotiables of executive travel.
+            </p>
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#E5E5E5] leading-tight">
-            Three Pillars. Zero Compromise.
-          </h2>
-          <p className="mt-6 text-[#E5E5E5]/60 font-light text-lg leading-relaxed">
-            Our service philosophy is engineered around the three non-negotiables of executive travel.
-          </p>
+
+          {/* Decorative image */}
+          <div className="lg:col-span-5 relative aspect-[16/10] overflow-hidden border border-[#E5E5E5]/8">
+            <img
+              src={heroImage}
+              alt="Laxora chauffeur at night"
+              className="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-[1.03] transition-all duration-700"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0C10] via-[#0B0C10]/40 to-transparent" />
+            <div className="absolute bottom-4 left-5 right-5 flex items-center gap-3">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#14B8A6] animate-pulse" />
+              <p className="text-[10px] uppercase tracking-[0.32em] text-[#E5E5E5]/85">
+                Live operations · 24/7 worldwide
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="mt-20 grid md:grid-cols-3 gap-px bg-[#E5E5E5]/10">
