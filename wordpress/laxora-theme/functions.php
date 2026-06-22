@@ -131,6 +131,10 @@ add_action( 'after_setup_theme', 'laxora_elementor_support' );
  */
 function laxora_add_page_templates( $templates ) {
     $templates['template-fullwidth.php'] = __( 'Laxora — Full Width Canvas', 'laxora' );
+    $templates['template-about.php']     = __( 'Laxora — About', 'laxora' );
+    $templates['template-services.php']  = __( 'Laxora — Services', 'laxora' );
+    $templates['template-fleet.php']     = __( 'Laxora — Fleet', 'laxora' );
+    $templates['template-contact.php']   = __( 'Laxora — Contact', 'laxora' );
     return $templates;
 }
 add_filter( 'theme_page_templates', 'laxora_add_page_templates' );

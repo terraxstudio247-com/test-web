@@ -561,3 +561,197 @@ button { font-family: inherit; cursor: pointer; }
 .laxora-404__inner { padding: 120px 0; max-width: 620px; margin: 0 auto; }
 .laxora-404__inner .laxora-h1 { margin: 16px 0 24px; }
 .laxora-404__inner .laxora-lead { margin-bottom: 32px; }
+
+/* =========================================================
+   INNER PAGE TEMPLATES (About / Services / Fleet / Contact)
+   ========================================================= */
+
+/* ---------- Page Banner ---------- */
+.laxora-page-banner { position: relative; min-height: 60vh; display: flex; align-items: flex-end; padding: 160px 0 64px; overflow: hidden; }
+.laxora-page-banner__bg { position: absolute; inset: 0; }
+.laxora-page-banner__bg img { width: 100%; height: 100%; object-fit: cover; }
+.laxora-page-banner__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,12,16,0.7) 0%, rgba(11,12,16,0.85) 60%, var(--laxora-bg) 100%); }
+.laxora-page-banner__inner { position: relative; z-index: 2; }
+.laxora-page-banner__title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.01em; color: var(--laxora-text); margin: 0; }
+.laxora-page-banner__title em { color: var(--laxora-gold); font-style: italic; }
+.laxora-page-banner__subtitle { color: rgba(229,229,229,0.7); font-weight: 300; line-height: 1.7; max-width: 720px; margin: 24px 0 32px; font-size: 17px; }
+.laxora-breadcrumbs { display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(229,229,229,0.55); }
+.laxora-breadcrumbs a { color: var(--laxora-gold); }
+.laxora-breadcrumbs a:hover { color: var(--laxora-gold-2); }
+.laxora-breadcrumbs__sep { color: rgba(229,229,229,0.3); }
+
+/* ---------- About: Intro / Vision-Mission / Experience ---------- */
+.laxora-about-intro { padding: 96px 0; background: var(--laxora-bg); }
+.laxora-about-intro__grid { display: grid; gap: 56px; grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 900px) { .laxora-about-intro__grid { grid-template-columns: 6fr 5fr; } }
+.laxora-about-intro__copy h2 { margin: 0 0 24px; }
+.laxora-about-intro__copy p + p { margin-top: 20px; }
+.laxora-about-intro__image { position: relative; overflow: hidden; border: 1px solid var(--laxora-border); aspect-ratio: 4/3; }
+.laxora-about-intro__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.laxora-about-intro__image:hover img { transform: scale(1.04); }
+
+.laxora-vm { padding: 96px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-vm__grid { display: grid; gap: 1px; background: var(--laxora-border); grid-template-columns: 1fr; }
+@media (min-width: 900px) { .laxora-vm__grid { grid-template-columns: repeat(3, 1fr); } }
+.laxora-vm__card { background: var(--laxora-bg); padding: 56px 40px; position: relative; transition: background-color .5s ease; }
+.laxora-vm__card:hover { background: rgba(31,40,51,0.4); }
+.laxora-vm__num { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 0.4em; opacity: 0.8; }
+.laxora-vm__title { font-family: 'Cormorant Garamond', serif; font-size: 30px; margin: 16px 0 16px; color: var(--laxora-text); }
+.laxora-vm__card p { color: rgba(229,229,229,0.6); line-height: 1.7; font-weight: 300; margin: 0; }
+.laxora-vm__bar { display: block; width: 48px; height: 1px; margin-top: 32px; transition: width .5s ease; }
+.laxora-vm__card:hover .laxora-vm__bar { width: 96px; }
+
+.laxora-experience { padding: 96px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-experience__grid { display: grid; gap: 56px; grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 900px) { .laxora-experience__grid { grid-template-columns: 5fr 6fr; } }
+.laxora-experience__visual { position: relative; aspect-ratio: 1; max-width: 520px; overflow: hidden; border: 1px solid var(--laxora-border); }
+.laxora-experience__visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+.laxora-experience__years {
+  position: absolute; right: 24px; bottom: 24px;
+  background: var(--laxora-bg-2); border: 1px solid var(--laxora-gold); padding: 28px 32px;
+  display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+}
+.laxora-experience__num { font-family: 'Cormorant Garamond', serif; font-size: 72px; line-height: 1; color: var(--laxora-gold); }
+.laxora-experience__label { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(229,229,229,0.7); }
+.laxora-experience__copy h2 { margin: 0 0 24px; }
+.laxora-checklist { list-style: none; padding: 0; margin: 32px 0 0; display: flex; flex-direction: column; gap: 14px; }
+.laxora-checklist li { position: relative; padding-left: 28px; color: rgba(229,229,229,0.75); font-weight: 300; line-height: 1.6; }
+.laxora-checklist li::before {
+  content: ""; position: absolute; left: 0; top: 8px;
+  width: 12px; height: 2px; background: var(--laxora-gold);
+}
+.laxora-checklist__dot {
+  position: absolute; left: 0; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+}
+.laxora-checklist li:has(.laxora-checklist__dot)::before { display: none; }
+
+/* ---------- About: Stats ---------- */
+.laxora-stats { padding: 96px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-stats__header { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.laxora-stats__header h2 { margin: 16px 0 0; }
+.laxora-stats__grid { display: grid; gap: 1px; background: var(--laxora-border); grid-template-columns: 1fr 1fr; }
+@media (min-width: 900px) { .laxora-stats__grid { grid-template-columns: repeat(4, 1fr); } }
+.laxora-stat { background: var(--laxora-bg); padding: 48px 24px; text-align: center; transition: background-color .5s ease; }
+.laxora-stat:hover { background: rgba(31,40,51,0.4); }
+.laxora-stat__num {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 5vw, 64px);
+  line-height: 1;
+  background: linear-gradient(90deg, var(--laxora-gold), var(--laxora-teal));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.laxora-stat__num small { font-size: 0.5em; opacity: 0.7; }
+.laxora-stat__label { display: block; margin-top: 12px; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(229,229,229,0.6); }
+
+/* ---------- About: Services preview grid ---------- */
+.laxora-services-preview { padding: 96px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-services-preview__header { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.laxora-services-preview__header h2 { margin: 16px 0 16px; }
+.laxora-services-preview__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .laxora-services-preview__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .laxora-services-preview__grid { grid-template-columns: repeat(3, 1fr); } }
+.laxora-service-card { display: block; position: relative; overflow: hidden; border: 1px solid var(--laxora-border); background: var(--laxora-bg-2); transition: border-color .3s ease, transform .4s ease; }
+.laxora-service-card:hover { border-color: var(--laxora-gold); transform: translateY(-4px); }
+.laxora-service-card__image { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.laxora-service-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+.laxora-service-card:hover .laxora-service-card__image img { transform: scale(1.06); }
+.laxora-service-card__overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11,12,16,0.7) 0%, transparent 60%); }
+.laxora-service-card__body { padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.laxora-service-card__title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--laxora-text); margin: 0; letter-spacing: 0.02em; text-transform: uppercase; }
+.laxora-service-card__link { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--laxora-gold); white-space: nowrap; }
+
+/* ---------- CTA Band ---------- */
+.laxora-cta-band { padding: 80px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); position: relative; overflow: hidden; }
+.laxora-cta-band::before {
+  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(197,160,89,0.08), transparent 70%);
+  pointer-events: none;
+}
+.laxora-cta-band__inner { text-align: center; max-width: 720px; margin: 0 auto; position: relative; }
+.laxora-cta-band__inner h2 { margin: 0 0 16px; }
+.laxora-cta-band__inner .laxora-lead { margin: 0 auto 32px; }
+.laxora-cta-band__buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Services Detail: alternating rows ---------- */
+.laxora-services-detail { padding: 96px 0; background: var(--laxora-bg); }
+.laxora-service-row { display: grid; gap: 56px; grid-template-columns: 1fr; align-items: center; padding: 48px 0; border-bottom: 1px solid rgba(229,229,229,0.06); }
+.laxora-service-row:last-child { border-bottom: 0; }
+@media (min-width: 900px) { .laxora-service-row { grid-template-columns: 1fr 1fr; } }
+.laxora-service-row.is-reverse .laxora-service-row__image { order: 2; }
+@media (max-width: 899px) { .laxora-service-row.is-reverse .laxora-service-row__image { order: 0; } }
+.laxora-service-row__image { position: relative; aspect-ratio: 4/3; overflow: hidden; border: 1px solid var(--laxora-border); }
+.laxora-service-row__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.laxora-service-row:hover .laxora-service-row__image img { transform: scale(1.04); }
+.laxora-service-row__num {
+  position: absolute; right: 24px; bottom: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; line-height: 1; letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+.laxora-service-row__body h2 { margin: 16px 0 16px; }
+.laxora-service-row__body .laxora-btn { margin-top: 24px; }
+
+/* ---------- Process timeline ---------- */
+.laxora-process { padding: 96px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-process__header { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+.laxora-process__header h2 { margin: 16px 0 0; }
+.laxora-process__grid { display: grid; gap: 1px; background: var(--laxora-border); grid-template-columns: 1fr; }
+@media (min-width: 768px) { .laxora-process__grid { grid-template-columns: repeat(4, 1fr); } }
+.laxora-step { background: var(--laxora-bg); padding: 40px 28px; transition: background-color .5s ease; position: relative; }
+.laxora-step:hover { background: rgba(31,40,51,0.4); }
+.laxora-step__num { font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1; letter-spacing: 0.04em; opacity: 0.85; }
+.laxora-step__title { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--laxora-text); margin: 16px 0 12px; }
+.laxora-step p { color: rgba(229,229,229,0.6); font-weight: 300; line-height: 1.7; margin: 0; }
+.laxora-step__bar { display: block; width: 32px; height: 2px; margin-top: 24px; transition: width .5s ease; }
+.laxora-step:hover .laxora-step__bar { width: 72px; }
+
+/* ---------- Fleet page: standards strip ---------- */
+.laxora-fleet-standards { padding: 80px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-fleet-standards__grid { display: grid; gap: 1px; background: var(--laxora-border); grid-template-columns: 1fr 1fr; }
+@media (min-width: 900px) { .laxora-fleet-standards__grid { grid-template-columns: repeat(4, 1fr); } }
+.laxora-fleet-standard { background: var(--laxora-bg); padding: 40px 28px; transition: background-color .5s ease; }
+.laxora-fleet-standard:hover { background: rgba(31,40,51,0.4); }
+.laxora-fleet-standard__bar { display: block; width: 32px; height: 2px; margin-bottom: 24px; }
+.laxora-fleet-standard h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--laxora-text); margin: 0 0 12px; }
+.laxora-fleet-standard p { color: rgba(229,229,229,0.6); font-weight: 300; line-height: 1.6; margin: 0; }
+
+/* ---------- Contact: tiles ---------- */
+.laxora-contact-tiles { padding: 80px 0 32px; background: var(--laxora-bg); }
+.laxora-contact-tiles__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .laxora-contact-tiles__grid { grid-template-columns: repeat(3, 1fr); } }
+.laxora-contact-tile {
+  display: flex; flex-direction: column; gap: 14px;
+  background: var(--laxora-bg-2);
+  border: 1px solid var(--laxora-border);
+  padding: 32px;
+  color: var(--laxora-text);
+  transition: border-color .3s ease, transform .3s ease;
+  border-top: 3px solid var(--c, var(--laxora-gold));
+}
+.laxora-contact-tile:hover { border-color: var(--c, var(--laxora-gold)); transform: translateY(-3px); }
+.laxora-contact-tile svg { color: var(--c, var(--laxora-gold)); }
+.laxora-contact-tile strong { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; }
+.laxora-contact-tile__cta { font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--c, var(--laxora-gold)); margin-top: auto; }
+
+/* ---------- Contact: offices ---------- */
+.laxora-offices { padding: 96px 0; background: var(--laxora-bg); border-top: 1px solid rgba(229,229,229,0.05); }
+.laxora-offices__header { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.laxora-offices__header h2 { margin: 16px 0 0; }
+.laxora-offices__grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .laxora-offices__grid { grid-template-columns: repeat(3, 1fr); } }
+.laxora-office { background: var(--laxora-bg-2); border: 1px solid var(--laxora-border); padding: 36px 32px; transition: border-color .3s ease, transform .3s ease; }
+.laxora-office:hover { transform: translateY(-3px); }
+.laxora-office__bar { display: block; width: 40px; height: 2px; margin-bottom: 24px; }
+.laxora-office h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--laxora-text); margin: 0 0 12px; }
+.laxora-office p { color: rgba(229,229,229,0.7); font-weight: 300; line-height: 1.7; margin: 0 0 16px; }
+
+/* mobile spacing fix */
+@media (max-width: 767px) {
+  .laxora-page-banner { padding: 120px 0 48px; min-height: 50vh; }
+  .laxora-service-row { padding: 32px 0; }
+  .laxora-experience__years { right: 16px; bottom: 16px; padding: 20px 24px; }
+  .laxora-experience__num { font-size: 56px; }
+}

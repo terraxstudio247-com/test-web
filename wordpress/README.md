@@ -22,16 +22,20 @@ wordpress/
 ---
 
 ## Install path A — Standalone theme (fastest, recommended)
-The standalone theme renders the entire Laxora design (hero, fleet, services, pillars, inquiry, footer) **out of the box** with no page builder required.
+The standalone theme renders the entire Laxora design (hero, fleet, services, pillars, inquiry, footer) **out of the box** with no page builder required. It also ships with **4 dedicated inner-page templates** (About / Services / Fleet / Contact).
 
 1. **Zip** the folder: `laxora-theme` → `laxora-theme.zip`.
 2. WP Admin → **Appearance → Themes → Add New → Upload Theme** → select the zip → *Install* → *Activate*.
 3. WP Admin → **Settings → Reading** → set *Your homepage displays* to **Your latest posts** (the theme's `front-page.php` will render automatically). *Or* create a page titled "Home" and set it as the static front page.
-4. WP Admin → **Appearance → Menus** → create a menu with 4 items (Services → `#services`, Fleet → `#fleet`, Corporate → `#corporate`, Contact → `#contact`) and assign it to the **Primary Navigation** location.
-5. WP Admin → **Appearance → Customize → Laxora — Brand & Contact** → fill WhatsApp number, phone, concierge email, and the inquiry form shortcode (default `[wpforms id="1"]`).
-6. *(Optional)* WP Admin → **Tools → Import → WordPress** → upload `laxora-demo-content.xml` to add 13 sample fleet vehicles. The Fleet section automatically prefers CPT entries over the bundled fallback.
+4. **Create the 4 inner pages**:
+   - WP Admin → **Pages → Add New** → title `About` → in the right sidebar set **Template** to **Laxora — About** → Publish.
+   - Repeat for `Services` (Template = *Laxora — Services*), `Fleet` (Template = *Laxora — Fleet*), and `Contact` (Template = *Laxora — Contact*).
+   - The default fallback nav already links to `/about/`, `/services/`, `/fleet/`, and `/contact/` so they'll appear in the header menu automatically. (Override anytime via **Appearance → Menus**.)
+5. WP Admin → **Appearance → Menus** → create a menu with Home, Services, Fleet, About, Contact items and assign it to the **Primary Navigation** location.
+6. WP Admin → **Appearance → Customize → Laxora — Brand & Contact** → fill WhatsApp number, phone, concierge email, and the inquiry form shortcode (default `[wpforms id="1"]`).
+7. *(Optional)* WP Admin → **Tools → Import → WordPress** → upload `laxora-demo-content.xml` to add 13 sample fleet vehicles. The Fleet section automatically prefers CPT entries over the bundled fallback.
 
-**Done.** The homepage is now a pixel-true Laxora landing page — hero, 13-vehicle filterable fleet, services, three pillars, and inquiry form.
+**Done.** Homepage + 4 inner pages, all pixel-true Laxora — hero, 13-vehicle filterable fleet, services, three pillars, inquiry form, About (vision/mission/14-years stat/facts & figures/services grid/CTA), full Services detail with process timeline, dedicated Fleet page with standards strip, and a Contact page with WhatsApp/Phone/Email tiles, inquiry form, and 3 office locations.
 
 ---
 
@@ -91,6 +95,11 @@ The theme registers a **Fleet** custom post type with its own *Vehicle Categorie
 | `laxora-theme/template-parts/services.php` | 4-service grid with chauffeur-interior image |
 | `laxora-theme/template-parts/pillars.php` | 3-pillar corporate values + live-ops image |
 | `laxora-theme/template-parts/inquiry.php` | WPForms-powered inquiry form |
+| `laxora-theme/template-parts/page-banner.php` | Reusable hero strip for inner pages |
+| `laxora-theme/template-about.php` | Dedicated About page (vision/mission/stats/services) |
+| `laxora-theme/template-services.php` | Dedicated Services page (detailed rows + process) |
+| `laxora-theme/template-fleet.php` | Dedicated Fleet page (reuses Luxury Collection + standards) |
+| `laxora-theme/template-contact.php` | Dedicated Contact page (tiles + form + offices) |
 | `laxora-theme/assets/css/laxora.css` | Full design system (tokens, layout, components) |
 | `laxora-theme/assets/js/laxora.js` | Header scroll state, mobile nav, fleet filter |
 | `laxora-theme/assets/images/` | All packaged images (hero, interior, 13 vehicles) |

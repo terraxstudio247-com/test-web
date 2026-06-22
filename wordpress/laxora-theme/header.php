@@ -65,14 +65,15 @@
 if ( ! function_exists( 'laxora_fallback_menu' ) ) {
     function laxora_fallback_menu() {
         $items = array(
-            '#services'  => __( 'Services', 'laxora' ),
-            '#fleet'     => __( 'Fleet', 'laxora' ),
-            '#corporate' => __( 'Corporate', 'laxora' ),
-            '#contact'   => __( 'Contact', 'laxora' ),
+            home_url( '/' )            => __( 'Home', 'laxora' ),
+            home_url( '/services/' )   => __( 'Services', 'laxora' ),
+            home_url( '/fleet/' )      => __( 'Fleet', 'laxora' ),
+            home_url( '/about/' )      => __( 'About', 'laxora' ),
+            home_url( '/contact/' )    => __( 'Contact', 'laxora' ),
         );
         echo '<ul class="laxora-nav__menu">';
         foreach ( $items as $href => $label ) {
-            printf( '<li><a href="%s">%s</a></li>', esc_attr( $href ), esc_html( $label ) );
+            printf( '<li><a href="%s">%s</a></li>', esc_url( $href ), esc_html( $label ) );
         }
         echo '</ul>';
     }
