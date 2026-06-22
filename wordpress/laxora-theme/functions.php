@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'LAXORA_VERSION', '1.0.5' );
+define( 'LAXORA_VERSION', '1.0.6' );
 define( 'LAXORA_DIR', get_template_directory() );
 define( 'LAXORA_URI', get_template_directory_uri() );
 
@@ -271,35 +271,35 @@ function laxora_phone_link() {
 }
 
 /**
- * Returns true if the current post/page is being built with Elementor (saved or being edited).
- * Used by every page template so Elementor can inject its content via the_content filter.
+ * Returns true ONLY when the current request is the Elementor editor preview
+ * iframe (so we can short-circuit our curated templates and let the editor
+ * render the_content). The saved/builder-mode meta is intentionally ignored —
+ * we always want the curated Laxora design to be the frontend default. Users
+ * who want a 100% Elementor-built page should assign the "Laxora — Full Width
+ * Canvas" template instead.
  */
-function laxora_is_elementor_page( $post_id = null ) {
-    if ( ! $post_id ) { $post_id = get_the_ID(); }
-    if ( ! $post_id ) { return false; }
-
-    // Editor preview iframe / Ajax render.
-    if ( isset( $_GET['elementor-preview'] ) ) {                            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+function laxora_is_elementor_editor() {
+    if ( isset( $_GET['elementor-preview'] ) || isset( $_GET['elementor_library'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         return true;
     }
-
-    // Saved Elementor document.
-    if ( get_post_meta( $post_id, '_elementor_edit_mode', true ) === 'builder' ) {
-        return true;
-    }
-
-    // Official Elementor API (when the plugin is active).
     if ( did_action( 'elementor/loaded' ) && class_exists( '\\Elementor\\Plugin' ) ) {
         try {
-            $document = \Elementor\Plugin::$instance->documents->get( $post_id );
-            if ( $document && method_exists( $document, 'is_built_with_elementor' ) && $document->is_built_with_elementor() ) {
+            $editor = \Elementor\Plugin::$instance->editor ?? null;
+            if ( $editor && method_exists( $editor, 'is_edit_mode' ) && $editor->is_edit_mode() ) {
                 return true;
             }
-        } catch ( \Exception $e ) {
-            // Silent fail.
-        }
+            $preview = \Elementor\Plugin::$instance->preview ?? null;
+            if ( $preview && method_exists( $preview, 'is_preview_mode' ) && $preview->is_preview_mode() ) {
+                return true;
+            }
+        } catch ( \Exception $e ) { /* silent */ }
     }
     return false;
+}
+
+/** Back-compat alias used by the old templates. */
+function laxora_is_elementor_page( $post_id = null ) {
+    return laxora_is_elementor_editor();
 }
 
 /**

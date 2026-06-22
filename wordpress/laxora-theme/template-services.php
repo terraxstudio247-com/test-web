@@ -8,10 +8,11 @@
 
 get_header();
 
-// If Elementor is the active builder for this page, render its content and bail.
+// Show Elementor content only when actively editing in the Elementor iframe.
+// Otherwise the curated Laxora design is always rendered.
 if ( have_posts() ) {
     the_post();
-    if ( laxora_is_elementor_page() ) {
+    if ( laxora_is_elementor_editor() ) {
         the_content();
         get_footer();
         return;
@@ -233,7 +234,7 @@ if ( have_posts() ) {
 
 <?php
 // Hidden content area — empty for curated pages, lets Elementor activate later.
-echo '<div class="laxora-page-content laxora-page-content--empty">';
+echo '<div class="laxora-page-content laxora-page-content--empty" hidden>';
 the_content();
 echo '</div>';
 get_footer();
