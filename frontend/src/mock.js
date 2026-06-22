@@ -1,4 +1,4 @@
-// Mock data for Maza Elite chauffeur service
+// Mock data for Laxora chauffeur service
 
 // Category slugs match the filter labels
 export const categories = [

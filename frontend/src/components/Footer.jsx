@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="flex items-baseline gap-1">
-              <span className="font-serif text-2xl tracking-[0.22em] text-[#E5E5E5]">MAZA</span>
-              <span className="font-serif text-2xl tracking-[0.22em] text-[#C5A059]">ELITE</span>
+              <span className="font-serif text-2xl tracking-[0.18em] text-[#E5E5E5]">LAXORA</span>
+              <span className="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />
             </div>
             <p className="mt-6 text-[#E5E5E5]/55 font-light max-w-md leading-relaxed">
               Executive chauffeur services for those who measure travel in moments of
@@ -34,8 +34,8 @@ const Footer = () => {
               Concierge
             </h4>
             <ul className="space-y-3 text-[#E5E5E5]/65 text-sm font-light">
-              <li>concierge@mazaelite.com</li>
-              <li>+1 (800) MAZA-VIP</li>
+              <li>concierge@laxora.com</li>
+              <li>+1 (800) LAXORA-1</li>
               <li>24 / 7 Global Operations</li>
             </ul>
             <div className="mt-6 flex items-center gap-4">
@@ -48,7 +48,7 @@ const Footer = () => {
 
         <div className="mt-14 pt-8 border-t border-[#E5E5E5]/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-[10px] uppercase tracking-[0.32em] text-[#E5E5E5]/40">
-            © {new Date().getFullYear()} Maza Elite. All Rights Reserved.
+            © {new Date().getFullYear()} Laxora. All Rights Reserved.
           </p>
           <p className="text-[10px] uppercase tracking-[0.32em] text-[#E5E5E5]/40">
             Crafted for the discerning few.

@@ -22,9 +22,9 @@ const Inquiry = React.forwardRef((_props, ref) => {
     e.preventDefault();
     // Persist locally as a teaser; backend integration later.
     try {
-      const prev = JSON.parse(localStorage.getItem('maza_inquiries') || '[]');
+      const prev = JSON.parse(localStorage.getItem('laxora_inquiries') || '[]');
       prev.push({ ...form, date: form.date ? form.date.toISOString() : null, createdAt: new Date().toISOString() });
-      localStorage.setItem('maza_inquiries', JSON.stringify(prev));
+      localStorage.setItem('laxora_inquiries', JSON.stringify(prev));
     } catch (_e) { /* ignore */ }
     setSubmitted(true);
     setTimeout(() => {
@@ -68,7 +68,7 @@ const Inquiry = React.forwardRef((_props, ref) => {
                 <p className="text-[10px] uppercase tracking-[0.32em] text-[#E5E5E5]/40 mb-1">
                   Concierge
                 </p>
-                <p className="text-[#E5E5E5] font-light">concierge@mazaelite.com</p>
+                <p className="text-[#E5E5E5] font-light">concierge@laxora.com</p>
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.32em] text-[#E5E5E5]/40 mb-1">

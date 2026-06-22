@@ -34,24 +34,35 @@ const Services = () => {
             A Discreet Standard of Excellence.
           </h2>
           <p className="mt-6 text-[#E5E5E5]/60 font-light leading-relaxed">
-            From international arrivals to multi-day corporate engagements, every Maza Elite
+            From international arrivals to multi-day corporate engagements, every Laxora
             journey is choreographed end to end.
           </p>
         </div>
 
         <div className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-[#E5E5E5]/10">
-          {items.map((it, idx) => (
-            <div
-              key={it.title}
-              className="group bg-[#0B0C10] p-8 md:p-10 hover:bg-[#1F2833]/40 transition-colors duration-500"
-            >
-              <span className="font-serif text-xs tracking-[0.4em] text-[#C5A059]/60">
-                0{idx + 1}
-              </span>
-              <h3 className="mt-5 font-serif text-2xl text-[#E5E5E5]">{it.title}</h3>
-              <p className="mt-4 text-[#E5E5E5]/60 font-light leading-relaxed">{it.desc}</p>
-            </div>
-          ))}
+          {items.map((it, idx) => {
+            const colors = ['#14B8A6', '#C5A059', '#A855F7', '#F472B6'];
+            const c = colors[idx % colors.length];
+            return (
+              <div
+                key={it.title}
+                className="group bg-[#0B0C10] p-8 md:p-10 hover:bg-[#1F2833]/40 transition-colors duration-500"
+              >
+                <span
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full font-serif text-sm"
+                  style={{ backgroundColor: `${c}1A`, color: c }}
+                >
+                  0{idx + 1}
+                </span>
+                <h3 className="mt-5 font-serif text-2xl text-[#E5E5E5]">{it.title}</h3>
+                <p className="mt-4 text-[#E5E5E5]/60 font-light leading-relaxed">{it.desc}</p>
+                <div
+                  className="mt-6 h-[2px] w-10 group-hover:w-20 transition-[width] duration-500"
+                  style={{ backgroundColor: c }}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

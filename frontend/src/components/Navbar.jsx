@@ -32,12 +32,10 @@ const Navbar = ({ onCtaClick }) => {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-baseline gap-1 group"
         >
-          <span className="font-serif text-2xl tracking-[0.22em] text-[#E5E5E5] group-hover:text-[#C5A059] transition-colors">
-            MAZA
+          <span className="font-serif text-2xl tracking-[0.18em] text-[#E5E5E5] group-hover:text-[#C5A059] transition-colors">
+            LAXORA
           </span>
-          <span className="font-serif text-2xl tracking-[0.22em] text-[#C5A059]">
-            ELITE
-          </span>
+          <span className="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />
         </button>
 
         {/* Desktop Nav */}

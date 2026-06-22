@@ -1,11 +1,14 @@
-/* Maza Elite global styles */
+/* Laxora global styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
 
 :root {
-  --maza-bg: #0B0C10;
-  --maza-onyx: #1F2833;
-  --maza-gold: #C5A059;
-  --maza-silver: #E5E5E5;
+  --laxora-bg: #0B0C10;
+  --laxora-onyx: #1F2833;
+  --laxora-gold: #C5A059;
+  --laxora-silver: #E5E5E5;
+  --laxora-teal: #14B8A6;
+  --laxora-purple: #7E22CE;
+  --laxora-rose: #E11D74;
 }
 
 html {
@@ -14,8 +17,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--maza-bg);
-  color: var(--maza-silver);
+  background-color: var(--laxora-bg);
+  color: var(--laxora-silver);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

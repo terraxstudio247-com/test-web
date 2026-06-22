@@ -22,6 +22,10 @@ const Hero = ({ onCtaClick }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0C10]/85 via-[#0B0C10]/70 to-[#0B0C10]" />
         <div className="absolute inset-0 bg-[#0B0C10]/40" />
+        {/* Subtle colored ambient glows */}
+        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-[#14B8A6] opacity-[0.10] blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 -right-32 w-[520px] h-[520px] rounded-full bg-[#C5A059] opacity-[0.08] blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-[420px] h-[420px] rounded-full bg-[#A855F7] opacity-[0.07] blur-[140px] pointer-events-none" />
       </div>
 
       {/* Soft grain */}
@@ -44,13 +48,13 @@ const Hero = ({ onCtaClick }) => {
         </div>
 
         <h1 className="font-serif text-[#E5E5E5] text-4xl sm:text-5xl md:text-7xl leading-[1.05] tracking-tight">
-          Precision, Privacy,
+          <span className="text-[#14B8A6]">Precision</span>, <span className="text-[#C5A059]">Privacy</span>,
           <br />
-          and <span className="italic text-[#C5A059]">Uncompromised</span> Luxury.
+          and <span className="italic bg-gradient-to-r from-[#C5A059] via-[#E9C77B] to-[#14B8A6] bg-clip-text text-transparent">Uncompromised</span> Luxury.
         </h1>
 
         <p className="mt-8 max-w-2xl mx-auto text-[#E5E5E5]/70 text-base md:text-lg leading-relaxed font-light">
-          Maza Elite delivers a discreet, world-class chauffeur experience for executives,
+            Laxora delivers a discreet, world-class chauffeur experience for executives,
           dignitaries, and private clientele across the world's most demanding cities.
         </p>
 

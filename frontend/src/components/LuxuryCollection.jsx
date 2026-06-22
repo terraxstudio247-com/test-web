@@ -10,7 +10,7 @@ const LuxuryCollection = ({ onDetails }) => {
 
   const handleWhatsapp = (vehicle) => {
     const msg = encodeURIComponent(
-      `Hello Maza Elite, I'd like to inquire about the ${vehicle.name}.`
+      `Hello Laxora, I'd like to inquire about the ${vehicle.name}.`
     );
     const num = contactInfo.whatsapp.replace(/[^0-9]/g, '');
     window.open(`https://wa.me/${num}?text=${msg}`, '_blank');
@@ -25,11 +25,15 @@ const LuxuryCollection = ({ onDetails }) => {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl text-[#0B1F45] leading-tight">
-            Check our Luxury Collection
+          <span className="inline-block px-4 py-1.5 mb-5 text-[10px] uppercase tracking-[0.32em] font-semibold rounded-full bg-[#7E22CE]/10 text-[#7E22CE]">
+            The Laxora Fleet
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+            <span className="text-[#0B1F45]">Check our </span>
+            <span className="bg-gradient-to-r from-[#7E22CE] via-[#0B1F45] to-[#14B8A6] bg-clip-text text-transparent">Luxury Collection</span>
           </h2>
           <p className="mt-5 text-gray-600 text-base md:text-lg leading-relaxed">
-            Maza Elite curates a premier portfolio of executive vehicles — from
+            Laxora curates a premier portfolio of executive vehicles — from
             chauffeur-driven sedans and ultra-luxury SUVs to MPVs and coaches —
             delivering an uncompromised standard of comfort, privacy, and
             punctuality across every journey.
@@ -58,23 +62,42 @@ const LuxuryCollection = ({ onDetails }) => {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-          {filtered.map((v) => (
+          {filtered.map((v) => {
+            const catColors = {
+              suv: '#14B8A6',
+              sedan: '#C5A059',
+              van: '#A855F7',
+              bus: '#3B82F6',
+              buggy: '#F97316',
+            };
+            const accent = catColors[v.category] || '#0B1F45';
+            return (
             <article
               key={v.id}
-              className="bg-white border border-gray-200 overflow-hidden shadow-[0_2px_12px_rgba(11,31,69,0.06)] hover:shadow-[0_8px_28px_rgba(11,31,69,0.12)] transition-shadow duration-300 flex flex-col"
+              className="bg-white border border-gray-200 overflow-hidden shadow-[0_2px_12px_rgba(11,31,69,0.06)] hover:shadow-[0_8px_28px_rgba(11,31,69,0.14)] transition-shadow duration-300 flex flex-col group"
             >
               {/* Image */}
-              <div className="aspect-[16/11] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[16/11] overflow-hidden bg-gray-100">
                 <img
                   src={v.image}
                   alt={v.name}
-                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
+                <span
+                  className="absolute top-3 left-3 px-3 py-1 text-[9px] uppercase tracking-[0.18em] font-semibold text-white rounded-full"
+                  style={{ backgroundColor: accent }}
+                >
+                  {(categories.find((c) => c.id === v.category) || {}).label || v.category}
+                </span>
               </div>
 
               {/* Title */}
-              <div className="px-6 pt-7 pb-5 text-center">
+              <div
+                className="h-[3px] w-full"
+                style={{ backgroundColor: accent }}
+              />
+              <div className="px-6 pt-6 pb-4 text-center">
                 <h3 className="text-[#0B1F45] font-semibold tracking-[0.04em] text-base md:text-lg uppercase">
                   {v.name}
                 </h3>
@@ -83,12 +106,12 @@ const LuxuryCollection = ({ onDetails }) => {
               {/* Specs */}
               <div className="px-6 pb-6 flex items-center justify-center gap-5 text-[#0B1F45] text-sm">
                 <span className="flex items-center gap-2">
-                  <Users size={18} className="text-[#0B1F45]" strokeWidth={2} />
+                  <Users size={18} style={{ color: accent }} strokeWidth={2} />
                   <span className="font-medium">{v.passengers} Passengers</span>
                 </span>
                 <span className="h-5 w-px bg-gray-300" />
                 <span className="flex items-center gap-2">
-                  <Briefcase size={18} className="text-[#0B1F45]" strokeWidth={2} />
+                  <Briefcase size={18} style={{ color: accent }} strokeWidth={2} />
                   <span className="font-medium">{v.bags} Bags</span>
                 </span>
               </div>
@@ -117,7 +140,8 @@ const LuxuryCollection = ({ onDetails }) => {
                 </button>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
 
         {filtered.length === 0 && (
