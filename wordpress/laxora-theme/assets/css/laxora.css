@@ -890,3 +890,232 @@ button { font-family: inherit; cursor: pointer; }
   .laxora-page-banner__video,
   .laxora-video-hero__video { display: none; }
 }
+
+/* =========================================================
+   ABOUT PAGE (v2) — full-width, mobile responsive
+   ========================================================= */
+
+/* ---- Simple banner (no video, no subtitle) ---- */
+.laxora-simple-banner {
+  position: relative;
+  background: linear-gradient(180deg, #11161F 0%, var(--laxora-bg) 100%);
+  padding: 170px 0 80px;
+  overflow: hidden;
+}
+.laxora-simple-banner__bg { position: absolute; inset: 0; pointer-events: none; }
+.laxora-simple-banner__inner { position: relative; z-index: 2; }
+.laxora-simple-banner__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--laxora-text);
+  margin: 16px 0 0;
+}
+
+/* ---- Two-column intro ---- */
+.laxora-about-grid { padding: 80px 0; background: var(--laxora-bg); }
+.laxora-about-grid__inner {
+  display: grid; gap: 56px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) { .laxora-about-grid__inner { grid-template-columns: 6fr 5fr; } }
+.laxora-about-grid__left .laxora-eyebrow {
+  display: inline-block;
+  font-size: 13px; letter-spacing: 0.04em; text-transform: none;
+  color: var(--laxora-gold); font-weight: 500;
+  margin-bottom: 24px;
+}
+.laxora-about-grid__body { color: rgba(229,229,229,0.65); font-weight: 300; line-height: 1.8; margin: 24px 0 0; max-width: 560px; }
+
+/* Vision/Mission pair */
+.laxora-vm-pair { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 480px) { .laxora-vm-pair { grid-template-columns: 1fr 1fr; } }
+.laxora-vm-card {
+  background: var(--laxora-bg-2);
+  border: 1px solid var(--laxora-border);
+  padding: 28px 24px;
+  position: relative;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.laxora-vm-card:hover { border-color: rgba(197,160,89,0.4); transform: translateY(-3px); }
+.laxora-vm-card__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  margin-bottom: 16px;
+}
+.laxora-vm-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--laxora-text);
+  margin: 0 0 10px;
+}
+.laxora-vm-card p { color: rgba(229,229,229,0.6); font-weight: 300; line-height: 1.7; margin: 0; font-size: 14px; }
+
+/* 14 Years + checklist row */
+.laxora-experience-row {
+  display: grid; gap: 28px; align-items: center;
+  grid-template-columns: 1fr;
+  margin-top: 40px;
+}
+@media (min-width: 640px) { .laxora-experience-row { grid-template-columns: auto 1fr; gap: 32px; } }
+.laxora-experience-row__badge {
+  background: linear-gradient(160deg, #1A2336 0%, #0F1620 100%);
+  border: 1px solid var(--laxora-gold);
+  padding: 24px 28px;
+  text-align: center;
+  display: inline-flex; flex-direction: column; gap: 4px;
+  min-width: 140px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.laxora-experience-row__num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; line-height: 1;
+  color: var(--laxora-gold);
+}
+.laxora-experience-row__label {
+  font-size: 10px; letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(229,229,229,0.65);
+}
+.laxora-checklist--compact { margin: 0; gap: 10px; }
+.laxora-checklist--compact li {
+  padding-left: 24px;
+  font-size: 14px; line-height: 1.5;
+}
+.laxora-checklist--compact li::before { top: 9px; width: 10px; }
+
+/* Right column (paragraph + image) */
+.laxora-about-grid__right .laxora-lead { margin-bottom: 32px; }
+.laxora-about-grid__image { position: relative; overflow: hidden; border: 1px solid var(--laxora-border); aspect-ratio: 4/3; }
+.laxora-about-grid__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.laxora-about-grid__image:hover img { transform: scale(1.04); }
+
+/* ---- Dark band (Facts + Services) ---- */
+.laxora-about-band {
+  padding: 96px 0;
+  background: linear-gradient(180deg, #0E1420 0%, #0B0F17 100%);
+  border-top: 1px solid rgba(229,229,229,0.05);
+  border-bottom: 1px solid rgba(229,229,229,0.05);
+}
+.laxora-band-head {
+  display: grid; gap: 24px;
+  grid-template-columns: 1fr;
+  align-items: end;
+  margin-bottom: 48px;
+}
+@media (min-width: 900px) { .laxora-band-head { grid-template-columns: 1fr 1fr; gap: 56px; } }
+.laxora-band-head h2 { margin: 12px 0 0; }
+.laxora-band-head .laxora-lead { margin: 0; }
+.laxora-band-head--center {
+  text-align: center; margin-top: 96px; margin-bottom: 48px;
+  grid-template-columns: 1fr;
+  max-width: 720px; margin-left: auto; margin-right: auto;
+}
+.laxora-band-head--center .laxora-lead { margin: 0 auto; }
+
+/* Stat cards: icon left, number+label right */
+.laxora-stat-cards {
+  display: grid; gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .laxora-stat-cards { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .laxora-stat-cards { grid-template-columns: repeat(4, 1fr); } }
+.laxora-stat-card {
+  background: var(--laxora-bg-2);
+  border: 1px solid var(--laxora-border);
+  padding: 28px 24px;
+  display: flex; align-items: center; gap: 18px;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.laxora-stat-card:hover { border-color: rgba(197,160,89,0.35); transform: translateY(-3px); }
+.laxora-stat-card__icon {
+  flex: 0 0 64px;
+  width: 64px; height: 64px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+}
+.laxora-stat-card__body { display: flex; flex-direction: column; gap: 4px; }
+.laxora-stat-card__value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 500;
+  color: var(--laxora-text);
+  line-height: 1;
+}
+.laxora-stat-card__value small {
+  font-size: 0.55em;
+  color: rgba(229,229,229,0.6);
+  margin-left: 4px;
+  letter-spacing: 0.04em;
+}
+.laxora-stat-card__label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(229,229,229,0.65);
+}
+
+/* ---- Services 6-card grid ---- */
+.laxora-svc-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .laxora-svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .laxora-svc-grid { grid-template-columns: repeat(3, 1fr); } }
+.laxora-svc-tile {
+  display: flex; flex-direction: column;
+  background: var(--laxora-bg-2);
+  border: 1px solid var(--laxora-border);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--laxora-text);
+  transition: border-color .3s ease, transform .35s ease, box-shadow .35s ease;
+}
+.laxora-svc-tile:hover {
+  border-color: rgba(197,160,89,0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.4);
+}
+.laxora-svc-tile__image {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+.laxora-svc-tile__image img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .7s ease;
+}
+.laxora-svc-tile:hover .laxora-svc-tile__image img { transform: scale(1.06); }
+.laxora-svc-tile__shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(11,12,16,0.55) 0%, transparent 55%);
+}
+.laxora-svc-tile__body { padding: 22px 24px; }
+.laxora-svc-tile__title {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 14px; font-weight: 600;
+  color: var(--laxora-text);
+  margin: 0 0 10px;
+}
+.laxora-svc-tile__link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--laxora-gold);
+  transition: gap .3s ease;
+}
+.laxora-svc-tile:hover .laxora-svc-tile__link { gap: 12px; }
+
+/* Mobile tweaks */
+@media (max-width: 639px) {
+  .laxora-simple-banner { padding: 140px 0 60px; }
+  .laxora-about-grid { padding: 56px 0; }
+  .laxora-about-band { padding: 64px 0; }
+  .laxora-experience-row__badge { min-width: auto; padding: 18px 22px; }
+  .laxora-experience-row__num { font-size: 40px; }
+  .laxora-stat-card { padding: 22px 20px; gap: 14px; }
+  .laxora-stat-card__icon { flex-basis: 52px; width: 52px; height: 52px; }
+}
