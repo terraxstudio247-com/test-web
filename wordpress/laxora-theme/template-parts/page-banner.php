@@ -2,11 +2,12 @@
 /**
  * Reusable page banner (hero strip) used by inner pages.
  *
- * Variables (optional, set before get_template_part):
- *   $banner_eyebrow  - small uppercase eyebrow (e.g. "About Laxora")
- *   $banner_title    - main page heading
- *   $banner_subtitle - paragraph beneath the title
- *   $banner_image    - image URL
+ * Args (optional):
+ *   $args['eyebrow']  — small uppercase eyebrow (e.g. "About Laxora")
+ *   $args['title']    — main page heading (HTML allowed)
+ *   $args['subtitle'] — paragraph beneath the title
+ *   $args['image']    — image URL (also used as video poster when video present)
+ *   $args['video']    — optional .mp4 background video URL
  *
  * @package Laxora
  */
@@ -15,15 +16,25 @@ $banner_eyebrow  = isset( $args['eyebrow'] )  ? $args['eyebrow']  : '';
 $banner_title    = isset( $args['title'] )    ? $args['title']    : get_the_title();
 $banner_subtitle = isset( $args['subtitle'] ) ? $args['subtitle'] : '';
 $banner_image    = isset( $args['image'] )    ? $args['image']    : LAXORA_URI . '/assets/images/hero.jpg';
+$banner_video    = isset( $args['video'] )    ? $args['video']    : '';
 ?>
 
-<section class="laxora-page-banner">
-    <div class="laxora-page-banner__bg">
-        <img src="<?php echo esc_url( $banner_image ); ?>" alt="">
+<section class="laxora-page-banner <?php echo $banner_video ? 'has-video' : ''; ?>">
+    <div class="laxora-page-banner__bg" aria-hidden="true">
+        <?php if ( $banner_video ) : ?>
+            <video class="laxora-page-banner__video"
+                   autoplay muted loop playsinline preload="metadata"
+                   poster="<?php echo esc_url( $banner_image ); ?>">
+                <source src="<?php echo esc_url( $banner_video ); ?>" type="video/mp4">
+            </video>
+        <?php else : ?>
+            <img src="<?php echo esc_url( $banner_image ); ?>" alt="">
+        <?php endif; ?>
         <div class="laxora-page-banner__overlay"></div>
         <span class="laxora-glow laxora-glow--teal"></span>
         <span class="laxora-glow laxora-glow--gold"></span>
     </div>
+
     <div class="laxora-container laxora-page-banner__inner">
         <?php if ( $banner_eyebrow ) : ?>
             <div class="laxora-eyebrow-row">

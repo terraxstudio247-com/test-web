@@ -1,13 +1,20 @@
 <?php
 /**
- * Hero section.
+ * Home hero section — full-bleed autoplay video background.
  *
  * @package Laxora
  */
+
+$home_video  = 'https://videos.pexels.com/video-files/8344927/8344927-hd_1280_720_25fps.mp4';
+$home_poster = LAXORA_URI . '/assets/images/video-posters/home-poster.jpg';
 ?>
 <section id="hero" class="laxora-hero">
-    <div class="laxora-hero__bg">
-        <img src="<?php echo esc_url( LAXORA_URI . '/assets/images/hero.jpg' ); ?>" alt="<?php esc_attr_e( 'Laxora luxury sedan at night', 'laxora' ); ?>">
+    <div class="laxora-hero__bg" aria-hidden="true">
+        <video class="laxora-hero__video"
+               autoplay muted loop playsinline preload="metadata"
+               poster="<?php echo esc_url( $home_poster ); ?>">
+            <source src="<?php echo esc_url( $home_video ); ?>" type="video/mp4">
+        </video>
         <div class="laxora-hero__overlay"></div>
         <span class="laxora-glow laxora-glow--teal"></span>
         <span class="laxora-glow laxora-glow--gold"></span>

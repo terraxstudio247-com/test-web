@@ -852,3 +852,49 @@ button { font-family: inherit; cursor: pointer; }
   .laxora-video-hero { min-height: 80vh; padding: 140px 0 64px; }
   .laxora-video-hero__rating { padding: 12px 20px; }
 }
+
+/* =========================================================
+   VIDEO BACKGROUNDS — Home Hero + Page Banners
+   ========================================================= */
+
+/* Home hero now uses <video> instead of <img> */
+.laxora-hero__bg img,
+.laxora-hero__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.laxora-hero__video {
+  z-index: 0;
+  background: var(--laxora-bg); /* fallback while loading */
+}
+
+/* Page banner video variant */
+.laxora-page-banner.has-video { min-height: 70vh; }
+.laxora-page-banner__bg img,
+.laxora-page-banner__video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.laxora-page-banner__video {
+  z-index: 0;
+  background: var(--laxora-bg);
+}
+
+/* Smooth fade-in once the video can play (handled by JS). */
+.laxora-hero__video,
+.laxora-page-banner__video {
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+.laxora-hero__video.is-ready,
+.laxora-page-banner__video.is-ready {
+  opacity: 1;
+}
+
+/* Respect users who prefer reduced motion — show poster only. */
+@media (prefers-reduced-motion: reduce) {
+  .laxora-hero__video,
+  .laxora-page-banner__video { display: none; }
+}

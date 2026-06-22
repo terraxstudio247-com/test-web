@@ -42,6 +42,20 @@
       });
     }
 
+    /* ----- Fade-in background videos once they can play ----- */
+    document.querySelectorAll('.laxora-hero__video, .laxora-page-banner__video, .laxora-video-hero__video').forEach(function (v) {
+      var markReady = function () { v.classList.add('is-ready'); };
+      if (v.readyState >= 3) {
+        markReady();
+      } else {
+        v.addEventListener('canplay', markReady, { once: true });
+        v.addEventListener('loadeddata', markReady, { once: true });
+      }
+      // Attempt programmatic play (some browsers block autoplay despite attrs).
+      var p = v.play && v.play();
+      if (p && typeof p.catch === 'function') { p.catch(function () { /* silent */ }); }
+    });
+
     /* ----- Fleet category filter ----- */
     var filterBar = document.querySelector('[data-laxora-filters]');
     var grid      = document.querySelector('[data-laxora-grid]');

@@ -12,6 +12,8 @@ get_template_part( 'template-parts/page-banner', null, array(
     'eyebrow'  => __( 'About Laxora', 'laxora' ),
     'title'    => __( 'The Ultimate in <em>Luxury Chauffeur</em> &amp; Executive Travel.', 'laxora' ),
     'subtitle' => __( 'A globally curated chauffeur house dedicated to engineering quiet, precise, and deeply personal travel experiences for the world’s most discerning clientele.', 'laxora' ),
+    'image'    => LAXORA_URI . '/assets/images/video-posters/about-poster.jpg',
+    'video'    => 'https://videos.pexels.com/video-files/11901732/11901732-hd_1280_720_25fps.mp4',
 ) );
 ?>
 

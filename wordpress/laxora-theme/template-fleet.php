@@ -12,7 +12,8 @@ get_template_part( 'template-parts/page-banner', null, array(
     'eyebrow'  => __( 'Our Fleet', 'laxora' ),
     'title'    => __( 'A Curated <em>Luxury</em> Collection.', 'laxora' ),
     'subtitle' => __( 'Every vehicle is maintained to manufacturer specification and prepared with meticulous attention to detail before each journey.', 'laxora' ),
-    'image'    => LAXORA_URI . '/assets/images/fleet/mercedes-maybach.jpg',
+    'image'    => LAXORA_URI . '/assets/images/video-posters/fleet-poster.jpg',
+    'video'    => 'https://videos.pexels.com/video-files/9520615/9520615-hd_1366_720_25fps.mp4',
 ) );
 
 // Reuse the homepage fleet section.
